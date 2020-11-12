@@ -1,3 +1,4 @@
+import java.sql.DriverManager.println
 import java.util.*
 
 
@@ -11,6 +12,7 @@ fun main(args: Array<String>) {
     Hello.tstJ()
     TestStaticFun.tst()
     arrayConcatenation()
+    testWhen()
 
 
 }
@@ -56,6 +58,21 @@ fun arrayConcatenation() {
     println(list.joinToString())
     println(list.joinToString("-", "!", "?", -1))
     println (list.joinToString { "! $it ?" })
+    println()
+}
+
+fun testWhen() {
+    val n = 52
+    val point: Int
+
+    point = when (n) {
+        in 0..30, in 71..100 -> 1
+        in 31..47, in 53..70 -> 2
+        48, 49, 50, 51, 52 -> 4
+        else -> 0
+    }
+
+    println(point)
     println()
 }
 
