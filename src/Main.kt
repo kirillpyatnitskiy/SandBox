@@ -1,3 +1,4 @@
+import java.sql.DriverManager
 import java.sql.DriverManager.println
 import java.util.*
 
@@ -13,6 +14,7 @@ fun main(args: Array<String>) {
     TestStaticFun.tst()
     arrayConcatenation()
     testWhen()
+    testMap()
 
 
 }
@@ -73,6 +75,14 @@ fun testWhen() {
     }
 
     println(point)
+    println()
+}
+
+fun testMap(){
+    val list: List<String> = listOf("y", "a", "b", "c", "d")
+    println(list.map {it + "1"})
+    println(list.javaClass)
+    println(list.map {it + "1"}.javaClass)
     println()
 }
 
