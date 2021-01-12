@@ -1,5 +1,4 @@
 import java.sql.DriverManager
-import java.sql.DriverManager.println
 import java.util.*
 
 
@@ -15,6 +14,7 @@ fun main(args: Array<String>) {
     arrayConcatenation()
     testWhen()
     testMap()
+    testMapOf()
 
 
 }
@@ -83,6 +83,13 @@ fun testMap(){
     println(list.map {it + "1"})
     println(list.javaClass)
     println(list.map {it + "1"}.javaClass)
+    println()
+}
+
+fun testMapOf(){
+    val map : Map<String,String> = mapOf("first" to "Один", "second" to "Два")
+    val str = map.getValue("first")
+    println(map.getValue("first"))
     println()
 }
 
