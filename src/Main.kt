@@ -88,8 +88,9 @@ fun testMap(){
 }
 
 fun testMapOf(){
-    val map : Map<String,String> = mapOf("first" to "Один", "second" to "Два")
+    val map : Map<String,String?> = mapOf("first" to "Один", "second" to "Два", "third" to null)
     println(map.getValue("first"))
+    println(map.size)
     println()
 }
 
