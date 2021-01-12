@@ -15,6 +15,7 @@ fun main(args: Array<String>) {
     testWhen()
     testMap()
     testMapOf()
+    testMapForeach()
 
 
 }
@@ -89,6 +90,14 @@ fun testMap(){
 fun testMapOf(){
     val map : Map<String,String> = mapOf("first" to "Один", "second" to "Два")
     println(map.getValue("first"))
+    println()
+}
+
+fun testMapForeach(){
+    val map : Map<String,String> = mapOf("first" to "Один", "second" to "Два")
+    map.forEach{
+        println(it.key)
+    }
     println()
 }
 
