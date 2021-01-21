@@ -16,6 +16,7 @@ fun main(args: Array<String>) {
     testMap()
     testMapOf()
     testMapForeach()
+    TestSetValueInVar()
 
 
 }
@@ -106,4 +107,26 @@ fun testMapForeach(){
 class ElementForSS(str: String) {
     val id = (0..100).shuffled().first()
     val elementValue = str
+}
+
+class TestSetValueInVar(){
+    var variable : String = "first value"
+    set(value){
+        setTestVariable(value)
+//        field = value         //если мы хотим поменять значение variable, то нужно использовать ключевое слоо field
+    }
+
+    init{
+        variable = "second value"
+        printCurentValue()
+        println()
+    }
+
+    fun setTestVariable(value: String){
+        println("We set value: $value")
+    }
+
+    fun printCurentValue(){
+        println("Variable have value: $variable")
+    }
 }
