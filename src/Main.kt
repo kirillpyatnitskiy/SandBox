@@ -1,9 +1,9 @@
 import java.sql.DriverManager
 import java.util.*
+import javax.print.attribute.IntegerSyntax
 
 
 fun main(args: Array<String>) {
-
 
     println(convert(20.0) { it * 1.8 + 32 })
     convertIntToDouble(5) { it.toDouble() + 200.0 }
@@ -17,6 +17,8 @@ fun main(args: Array<String>) {
     testMapOf()
     testMapForeach()
     TestSetValueInVar()
+    println(testGeneric<Int>()::class.java)
+    testTo()
 
 
 }
@@ -103,13 +105,24 @@ fun testMapForeach(){
     println()
 }
 
+fun <T> testGeneric() : T {
+    val any = 123
+    return any as T
+}
+
+fun testTo(){
+    val str = "123"
+    println(str to "4")
+    println()
+}
+
 
 class ElementForSS(str: String) {
     val id = (0..100).shuffled().first()
     val elementValue = str
 }
 
-class TestSetValueInVar(){
+class TestSetValueInVar{
     var variable : String = "first value"
     set(value){
         setTestVariable(value)
