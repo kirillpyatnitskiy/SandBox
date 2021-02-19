@@ -1,6 +1,8 @@
-import java.sql.DriverManager
+import classes.CompareVersion
+import classes.Hello
+import classes.MutableListTest
+import classes.TestStaticFun
 import java.util.*
-import javax.print.attribute.IntegerSyntax
 
 
 fun main(args: Array<String>) {
@@ -12,15 +14,16 @@ fun main(args: Array<String>) {
     Hello.tstJ()
     TestStaticFun.tst()
     arrayConcatenation()
-    testWhen()
     testMap()
     testMapOf()
     testMapForeach()
     TestSetValueInVar()
     println(testGeneric<Int>()::class.java)
     testTo()
-
-
+    makeMaskForText()
+    compareVersion()
+    testWhen()
+    MutableListTest().concatenationLists()
 }
 
 fun convert(x: Double, converter: (Double) -> Double): Double {
@@ -69,9 +72,8 @@ fun arrayConcatenation() {
 
 fun testWhen() {
     val n = 52
-    val point: Int
 
-    point = when (n) {
+    val point = when (n) {
         in 0..30, in 71..100 -> 1
         in 31..47, in 53..70 -> 2
         48, 49, 50, 51, 52 -> 4
@@ -112,10 +114,29 @@ fun <T> testGeneric() : T {
 
 fun testTo(){
     val str = "123"
-    println(str to "4")
+    val result : Pair<String, String> = str to "4"
+    println(result)
     println()
 }
 
+fun makeMaskForText(){
+    val text = "Testtext"
+    val maskedText = text.substring(0, 4) + " " + text.substring(4)
+    println(maskedText)
+    println()
+
+    val phone = "+7 (903) 238-92-45"
+    val formattedPhone = phone.let {
+        return@let it.removeRange(0,4).removeRange(3,5).replace("-", "")
+    }
+    println(formattedPhone)
+    println()
+}
+
+fun compareVersion(){
+    println("Compare version ${CompareVersion().compareVersion("1.5.6", "1.5.4").toString()}")
+    println()
+}
 
 class ElementForSS(str: String) {
     val id = (0..100).shuffled().first()
@@ -143,3 +164,4 @@ class TestSetValueInVar{
         println("Variable have value: $variable")
     }
 }
+

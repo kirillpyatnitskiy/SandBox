@@ -1,3 +1,5 @@
+package classes
+
 class TestStaticFun {
 
     companion object{
